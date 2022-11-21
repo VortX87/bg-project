@@ -10,26 +10,20 @@ export const getAllCategories = () => {
     })
 }
 
-export const getAllReviews = () => {
-    return myApi.get("/reviews").then((res) => {
+export const getAllReviews = (req) => {
+    return myApi.get("/reviews", { params: req }).then((res) => {
         return res.data.reviews
     })
 }
 
-export const getUserByUsername = () => {
-    return myApi.get("/users/:username").then((res) => {
-        return res.data.username
-    })
-}
-
-export const getReviewByID = () => {
-    return myApi.get("reviews/:review_id").then((res) => {
+export const getReviewById = (review_id) => {
+    return myApi.get(`/reviews/${review_id}`).then((res) => {
         return res.data.review
     })
 }
 
-export const getCommentByReviewID = () => {
-    return myApi.get("reviews/:review_id/comments").then((res) => {
-        return res.data.comments
+export const getUserByUsername = (username) => {
+    return myApi.get(`/users/${username}`).then((res) => {
+        return res.data.user
     })
 }

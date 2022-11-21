@@ -39,3 +39,15 @@
   margin-left: 14.1%;
   margin-right: 16.3%;
 }
+
+.categories {
+  align-items: center;
+  font-size: 50px;
+  list-style: none;
+  margin-left: 40%;
+}
+
+.reviewImage {
+  height: 500px;
+  width: 500px
+}

@@ -7,7 +7,8 @@ import Home from './Components/Home';
 import About from './Components/About';
 import Categories from './Components/Categories';
 import AllReviews from './Components/AllReviews';
-import CategoryReviews from './Components/CategoryReviews';
+import ReviewPage from './Components/ReviewPage';
+
 
 function App() {
   return (
@@ -19,8 +20,8 @@ function App() {
           <Route path="/" exact element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="categories" element={<Categories />} />
-          <Route path="categories/:category" element={<CategoryReviews />} />
           <Route path="allreviews" element={<AllReviews />} />
+          <Route path="categories/:category" element={<ReviewPage />} />
         </Routes>
       </div>
     </Router>
