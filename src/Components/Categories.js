@@ -3,9 +3,8 @@ import '../App.css';
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { getAllCategories } from '../Util/api';
-import ReviewPage from './ReviewPage';
 
-function Categories() {
+function Categories({ setPickedCat }) {
 
     const [categories, setCategories] = useState([])
 
@@ -16,10 +15,10 @@ function Categories() {
         })
     }, [])
 
-    const handleClick = (a) => {
-        let chosenCat = a
-        console.log(chosenCat)
-        console.log(typeof chosenCat)
+    const handleClick = (value) => {
+        setPickedCat(value)
+        console.log(value)
+        console.log(typeof value)
     }
 
     return (
@@ -36,4 +35,6 @@ function Categories() {
 
 {/* <Link to={`/categories/${game.slug}`}></Link> */ }
 {/* <button onClick={() => handleClick(game.slug)}></button> */ }
+
+{/* <Link to={`/categories/${game.slug}`}></Link> */ }
 export default Categories;

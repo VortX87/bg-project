@@ -8,9 +8,15 @@ import About from './Components/About';
 import Categories from './Components/Categories';
 import AllReviews from './Components/AllReviews';
 import ReviewPage from './Components/ReviewPage';
+import SingleReview from './Components/SingleReview';
+import { useState } from 'react'
 
 
 function App() {
+
+  const [pickedCat, setPickedCat] = useState('')
+  const [pickedArt, setPickedArt] = useState('')
+
   return (
     <Router>
       <div>
@@ -19,9 +25,10 @@ function App() {
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="about" element={<About />} />
-          <Route path="categories" element={<Categories />} />
-          <Route path="allreviews" element={<AllReviews />} />
-          <Route path="categories/:category" element={<ReviewPage />} />
+          <Route path="categories" element={<Categories setPickedCat={setPickedCat} />} />
+          <Route path="categories/:category" element={<ReviewPage pickedCat={pickedCat} />} />
+          <Route path="allreviews" element={<AllReviews setPickedArt={setPickedArt} />} />
+          <Route path="allreviews/:review_id" element={<SingleReview pickedArt={pickedArt} />} />
         </Routes>
       </div>
     </Router>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { getAllReviews } from '../Util/api';
 
-function AllReviews() {
+function AllReviews({ setPickedArt }) {
     const [reviews, setReview] = useState([])
 
     useEffect(() => {
@@ -14,16 +14,22 @@ function AllReviews() {
         })
     }, [])
 
+    const handleClick = (value) => {
+        setPickedArt(value)
+        console.log(value)
+        console.log(typeof value)
+    }
+
     return (
         <div>
             <ul>
                 {reviews.map((review) => {
                     return <div className='articles'>
-                        <ul>Title <br></br>  {review.title}<br></br>
+                        <ul>Title <br></br><Link to={`/allreviews/${review.review_id}`} onClick={() => handleClick(review.review_id)}>  {review.title}</Link><br></br>
                             Category <br></br>  {review.category}<br></br>
-                            Details <br></br>  {review.review_body}<br></br>
                             Owner <br></br>  {review.owner}<br></br>
-                            Designer <br></br> {review.designer}</ul></div>
+                        </ul>
+                    </div>
                 })}
             </ul>
         </div>

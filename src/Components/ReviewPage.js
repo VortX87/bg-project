@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 import { getAllReviews, getReviewById } from '../Util/api';
 
 
-function ReviewPage() {
+function ReviewPage({ pickedCat }) {
 
     const [review, setReview] = useState([])
     const [allReviews, setAllReviews] = useState([])
@@ -13,13 +13,9 @@ function ReviewPage() {
     const { } = useParams()
 
     useEffect(() => {
-
+        // let test = pickedCat
         const params = {}
-        params.category = "strategy"
-        // getReviewById(10).then((reviewFromServer) => {
-        //     setReview(reviewFromServer)
-        //     console.log(reviewFromServer)
-        // })
+        params.category = pickedCat
 
         getAllReviews(params).then((allReviewFromServer) => {
             setAllReviews(allReviewFromServer)
@@ -30,15 +26,16 @@ function ReviewPage() {
 
     return (
         <div>
+            <h1 className='reviewHeader'>{pickedCat}</h1>
             <ul className='reviews'>
                 {allReviews.map((review) => {
-                    return <li>
+                    return <ul>
                         {review.title}<br></br>
                         {review.designer}<br></br>
                         {review.owner}<br></br>
                         {review.review_body}<br></br>
                         <img className='reviewImage' src={review.review_img_url} />
-                    </li>
+                    </ul>
                 })}
             </ul>
         </div >
