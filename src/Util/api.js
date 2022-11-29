@@ -27,3 +27,15 @@ export const getUserByUsername = (username) => {
         return res.data.user
     })
 }
+
+export const getCommentsById = (review_id) => {
+    return myApi.get(`/reviews/${review_id}/comments`).then((res) => {
+        return res.data.comments
+    })
+}
+
+export const postComment = (review_id, { username, body }) => {
+    return myApi.post(`/reviews/${review_id}/comments`, { username, body }).then((res) => {
+        return res.data.comments
+    })
+}

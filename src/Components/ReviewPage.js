@@ -1,40 +1,43 @@
 import React from 'react'
 import '../App.css';
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import { getAllReviews, getReviewById } from '../Util/api';
+import { useParams, Link } from 'react-router-dom'
+import { getAllReviews } from '../Util/api';
 
 
-function ReviewPage({ pickedCat }) {
+function ReviewPage({ setPickedArt }) {
 
-    const [review, setReview] = useState([])
     const [allReviews, setAllReviews] = useState([])
 
-    const { } = useParams()
+    const { category } = useParams()
+    console.log(category)
 
     useEffect(() => {
-        // let test = pickedCat
         const params = {}
-        params.category = pickedCat
+        params.category = category
 
         getAllReviews(params).then((allReviewFromServer) => {
             setAllReviews(allReviewFromServer)
         })
     }, [])
 
+    const handleClick = (value) => {
+        setPickedArt(value)
+        console.log(value)
+        console.log(typeof value)
+    }
+
     console.log(allReviews)
 
     return (
         <div>
-            <h1 className='reviewHeader'>{pickedCat}</h1>
+            <h1 className='reviewHeader'>{category}</h1>
             <ul className='reviews'>
                 {allReviews.map((review) => {
                     return <ul>
-                        {review.title}<br></br>
-                        {review.designer}<br></br>
-                        {review.owner}<br></br>
-                        {review.review_body}<br></br>
-                        <img className='reviewImage' src={review.review_img_url} />
+                        <Link to={`/allreviews/${review.review_id}`} onClick={() => handleClick(review.review_id)}>  {review.title}</Link><br></br>
+                        Designer: {review.designer}<br></br>
+                        Owner: {review.owner}<br></br>
                     </ul>
                 })}
             </ul>

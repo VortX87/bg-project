@@ -7,7 +7,7 @@
   justify-content: space-around;
   align-items: center;
   min-height: 10vh;
-  background: rgb(192, 71, 200);
+  background: rgb(69, 137, 172);
   align-self: auto;
   margin-left: 16%;
   margin-right: 16%;
@@ -20,7 +20,7 @@
   align-items: center;
   list-style: none;
   color: rgb(87, 81, 165);
-  background: rgb(210, 112, 217);
+  background: rgb(59, 150, 196);
   margin-top: -13px;
   margin-left: 16%;
   margin-right: 16%;
@@ -29,12 +29,13 @@
 
 .articles {
   display: flex;
+  flex-direction: column;
   align-items: center;
   text-align: center;
   border: 2px;
   border-color: black;
   border-style: solid;
-  background-color: aliceblue;
+  background-color: rgb(98, 145, 168);
   margin-top: 5px;
   margin-left: 14.1%;
   margin-right: 16.3%;
@@ -49,7 +50,9 @@
 
 .reviewImage {
   height: 500px;
-  width: 500px
+  width: 500px;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 .reviews {
@@ -60,7 +63,7 @@
   border: 2px;
   border-color: black;
   border-style: solid;
-  background-color: aliceblue;
+  background-color: rgb(98, 145, 168);
   margin-top: 5px;
   margin-left: 16%;
   margin-right: 16%;
@@ -71,4 +74,27 @@
   align-items: center;
   text-align: center;
   flex-direction: column;
+}
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  margin-left: 16%;
+  margin-right: 16%;
+  text-align: center;
+  background-color: rgb(37, 100, 130);
+
+}
+
+.commentHead {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}
+
+.CommentForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
