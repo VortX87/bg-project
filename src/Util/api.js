@@ -39,3 +39,15 @@ export const postComment = (review_id, { username, body }) => {
         return res.data.comments
     })
 }
+
+export const patchReview = (review_id, increase) => {
+    return myApi.patch(`/reviews/${review_id}`, { inc_votes: increase }).then((res) => {
+        return res.data.comment
+    })
+}
+
+export const deleteComment = (comment_id) => {
+    return myApi.delete(`/comments/${comment_id}`).then((res) => {
+        return res.data
+    })
+}

@@ -22,7 +22,7 @@ function Categories({ setPickedCat }) {
     }
 
     return (
-        <div>
+        <div className='cats'>
             <ul className='categories'>
                 {categories.map((game) => {
                     return <Link to={`/categories/${game.slug}`}><li onClick={() => handleClick(game.slug)}>{game.slug}</li></Link>

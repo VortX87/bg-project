@@ -5,8 +5,9 @@ import { getReviewById } from '../Util/api'
 import Comments from './Comments'
 import WriteComment from './WriteComment'
 import { useParams } from 'react-router-dom'
+import ReviewVotes from './ReviewVotes'
 
-function SingleReview() {
+function SingleReview({ pickedArt }) {
 
     const { review_id } = useParams()
     console.log(review_id)
@@ -30,6 +31,7 @@ function SingleReview() {
                 <h2>Owner</h2>{singleReview.owner}<br></br>
                 <h2>Review</h2>{singleReview.review_body}<br></br>
                 <img className='reviewImage' src={singleReview.review_img_url} />
+                <ReviewVotes singleReview={singleReview} />
             </div>
             <div>
                 <Comments />

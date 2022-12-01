@@ -23,6 +23,7 @@ function Comments() {
                     {comment.body}<br></br>
                     {comment.author}<br></br>
                     Votes :{comment.votes}
+
                 </ul></div>
             })}
 

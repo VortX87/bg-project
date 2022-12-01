@@ -4,7 +4,7 @@ import '../App.css';
 function Header() {
     return (
         <h1 className='header'>
-            BoardGame Review Project
+            Rollin' the dice BoardGame Reviews
         </h1>
     );
 }
