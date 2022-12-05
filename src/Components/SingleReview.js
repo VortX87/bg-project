@@ -7,7 +7,7 @@ import WriteComment from './WriteComment'
 import { useParams } from 'react-router-dom'
 import ReviewVotes from './ReviewVotes'
 
-function SingleReview({ pickedArt }) {
+function SingleReview() {
 
     const { review_id } = useParams()
     console.log(review_id)

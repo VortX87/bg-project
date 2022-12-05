@@ -6,10 +6,13 @@ import { useParams } from 'react-router-dom'
 function ReviewVotes({ singleReview }) {
 
     const { review_id } = useParams()
+    console.log(singleReview)
+    console.log(singleReview.votes)
 
     const handleClick = () => {
         patchReview(review_id, 1).then((res) => {
             window.location.reload(true)
+            console.log(res)
         })
     }
 
@@ -19,4 +22,4 @@ function ReviewVotes({ singleReview }) {
     );
 }
 
-export default ReviewVotes;
+export default ReviewVotes

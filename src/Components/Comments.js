@@ -3,11 +3,14 @@ import '../App.css';
 import { useEffect, useState } from 'react'
 import { getCommentsById } from '../Util/api'
 import { useParams } from 'react-router-dom'
+import DeleteComment from './DeleteComment';
 
 function Comments() {
 
     const [comments, setComments] = useState([])
     const { review_id } = useParams()
+
+    const user = 'jessjelly'
 
     useEffect(() => {
 
@@ -24,7 +27,9 @@ function Comments() {
                     {comment.author}<br></br>
                     Votes :{comment.votes}
 
-                </ul></div>
+                </ul>
+                    <DeleteComment setComment={setComments} />
+                </div>
             })}
 
         </div>

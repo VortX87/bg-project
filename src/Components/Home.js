@@ -1,10 +1,12 @@
 import React from 'react'
 import '../App.css';
 
+
 function Home() {
 
     return (
         <main>
+
             <div className='homeBlurb'>
                 <h1>Welcome to Rollin' the dice</h1>
                 <p>Home of all the best board game reviews</p>

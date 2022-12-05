@@ -113,3 +113,12 @@
   flex-direction: column;
   align-items: center;
 }
+
+.sortButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 16%;
+  margin-right: 16%;
+  justify-content: space-around;
+}
