@@ -10,7 +10,7 @@ function ReviewPage({ setPickedArt }) {
     const [allReviews, setAllReviews] = useState([])
 
     const { category } = useParams()
-    console.log(category)
+
 
     useEffect(() => {
         const params = {}
@@ -23,14 +23,10 @@ function ReviewPage({ setPickedArt }) {
 
     const handleClick = (value) => {
         setPickedArt(value)
-        console.log(value)
-        console.log(typeof value)
     }
 
-    console.log(allReviews)
-
     return (
-        <div>
+        <section>
             <h1 className='reviewHeader'>{category}</h1>
             <ul className='reviews'>
                 {allReviews.map((review) => {
@@ -41,7 +37,7 @@ function ReviewPage({ setPickedArt }) {
                     </ul>
                 })}
             </ul>
-        </div >
+        </section>
     );
 }
 

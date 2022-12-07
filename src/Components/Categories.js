@@ -17,24 +17,17 @@ function Categories({ setPickedCat }) {
 
     const handleClick = (value) => {
         setPickedCat(value)
-        console.log(value)
-        console.log(typeof value)
     }
 
     return (
-        <div className='cats'>
+        <section className='cats'>
             <ul className='categories'>
                 {categories.map((game) => {
                     return <Link to={`/categories/${game.slug}`}><li onClick={() => handleClick(game.slug)}>{game.slug}</li></Link>
                 })}
             </ul>
-        </div>
+        </section>
     );
 }
 
-
-{/* <Link to={`/categories/${game.slug}`}></Link> */ }
-{/* <button onClick={() => handleClick(game.slug)}></button> */ }
-
-{/* <Link to={`/categories/${game.slug}`}></Link> */ }
 export default Categories;

@@ -9,7 +9,6 @@ import Categories from './Components/Categories';
 import AllReviews from './Components/AllReviews';
 import ReviewPage from './Components/ReviewPage';
 import SingleReview from './Components/SingleReview';
-import Comments from './Components/Comments';
 import { useState } from 'react'
 
 
@@ -27,9 +26,9 @@ function App() {
           <Route path="/" exact element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="categories" element={<Categories setPickedCat={setPickedCat} />} />
-          <Route path="categories/:category" element={<ReviewPage pickedCat={pickedCat} setPickedArt={setPickedArt} />} />
+          <Route path="categories/:category" element={<ReviewPage setPickedArt={setPickedArt} />} />
           <Route path="allreviews" element={<AllReviews setPickedArt={setPickedArt} />} />
-          <Route path="allreviews/:review_id" element={<SingleReview pickedArt={pickedArt} />} />
+          <Route path="allreviews/:review_id" element={<SingleReview />} />
         </Routes>
       </div>
     </Router>

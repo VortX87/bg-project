@@ -18,41 +18,38 @@ function AllReviews({ setPickedArt }) {
         params.order = direction
         getAllReviews(params).then((reviewsFromServer) => {
             setReview(reviewsFromServer)
-            console.log(reviewsFromServer)
         })
     }, [sorter, direction])
 
     const handleClick = (value) => {
         setPickedArt(value)
-        console.log(value)
-        console.log(typeof value)
     }
 
     return (
         <main>
-            <div className='sortButton'>
+            <section className='sortButton'>
                 <select onChange={e => SetSorter(e.target.value)}>
                     <option value='created_at'>Date Created</option>
                     <option value='comment_count'>No. of Comments</option>
                     <option value='votes'>No. of Votes</option>
                 </select><br></br>
                 <select onChange={e => SetDirection(e.target.value)}>
-                    <option value='desc'>Decending Order</option>
+                    <option value='desc'>Descending Order</option>
                     <option value='asc'>Ascending Order</option>
                 </select><br></br>
-            </div>
-            <div>
+            </section>
+            <section>
                 <ul>
                     {reviews.map((review) => {
-                        return <div className='articles'>
+                        return <section className='articles'>
                             <ul>Title <br></br><Link to={`/allreviews/${review.review_id}`} onClick={() => handleClick(review.review_id)}>  {review.title}</Link><br></br>
                                 Category <br></br>  {review.category}<br></br>
                                 Owner <br></br>  {review.owner}<br></br>
                             </ul>
-                        </div>
+                        </section>
                     })}
                 </ul>
-            </div>
+            </section>
         </main>
     );
 }

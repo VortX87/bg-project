@@ -10,13 +10,10 @@ function Comments() {
     const [comments, setComments] = useState([])
     const { review_id } = useParams()
 
-    const user = 'jessjelly'
-
     useEffect(() => {
 
         getCommentsById(review_id).then((commentFromServer) => {
             setComments(commentFromServer)
-            console.log(commentFromServer)
         })
     }, [])
     return (
@@ -25,10 +22,8 @@ function Comments() {
                 return <div className='comments'><ul>
                     {comment.body}<br></br>
                     {comment.author}<br></br>
-                    Votes :{comment.votes}
-
                 </ul>
-                    <DeleteComment setComment={setComments} />
+                    <DeleteComment comment={comment} />
                 </div>
             })}
 

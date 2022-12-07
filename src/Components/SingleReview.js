@@ -10,7 +10,6 @@ import ReviewVotes from './ReviewVotes'
 function SingleReview() {
 
     const { review_id } = useParams()
-    console.log(review_id)
 
     const [singleReview, setSingleReview] = useState([])
 
@@ -18,26 +17,25 @@ function SingleReview() {
 
         getReviewById(review_id).then((reviewFromServer) => {
             setSingleReview(reviewFromServer)
-            console.log(reviewFromServer)
         })
 
     }, [])
 
     return (
-        <body>
-            <div className='reviews'>
+        <section>
+            <section className='reviews'>
                 <h1>{singleReview.title}</h1><br></br>
                 <h2>Designer</h2>{singleReview.designer}<br></br>
                 <h2>Owner</h2>{singleReview.owner}<br></br>
-                <h2>Review</h2>{singleReview.review_body}<br></br>
+                <h2>Review</h2>{singleReview.review_body}<br></br><br></br>
                 <img className='reviewImage' src={singleReview.review_img_url} />
                 <ReviewVotes singleReview={singleReview} />
-            </div>
-            <div>
+            </section>
+            <section>
                 <Comments />
                 <WriteComment />
-            </div>
-        </body>
+            </section>
+        </section>
     )
 }
 

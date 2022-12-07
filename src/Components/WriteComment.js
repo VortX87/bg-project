@@ -13,22 +13,20 @@ function WriteComment() {
             username: name,
             body: body
         };
-        console.log(newComment)
 
         postComment(review_id, newComment).then((res) => {
-            console.log(res)
             window.location.reload(true)
         })
     }
     return (
-        <div className='CommentForm'><form
+        <section className='CommentForm'><form
             onSubmit={(e) => {
                 e.preventDefault()
                 HandleSubmit(user, e.target[0].value)
             }}>
-            <textarea id="comments" name="comments" rows="4" cols="50" placeholder='Put your comments here....' onChange={(e) => (e.target[0].value)}></textarea>
-            <button type='submit'>Submit</button>
-        </form></div>
+            <textarea id="comments" className="commentBox" rows="4" cols="50" placeholder='Put your comments here....' onChange={(e) => (e.target[0].value)}></textarea><br></br>
+            <button type='submit' className='button64'>Submit</button>
+        </form></section>
     );
 }
 
