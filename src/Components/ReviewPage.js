@@ -15,6 +15,7 @@ function ReviewPage({ setPickedArt }) {
     useEffect(() => {
         const params = {}
         params.category = category
+        // const { category, review_id } = params
 
         getAllReviews(params).then((allReviewFromServer) => {
             setAllReviews(allReviewFromServer)

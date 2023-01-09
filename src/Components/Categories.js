@@ -21,7 +21,7 @@ function Categories({ setPickedCat }) {
 
     return (
         <section className='cats'>
-            <ul className='categories'>
+            <ul className='categories' data-testid='tester'>
                 {categories.map((game) => {
                     return <Link to={`/categories/${game.slug}`}><li onClick={() => handleClick(game.slug)}>{game.slug}</li></Link>
                 })}

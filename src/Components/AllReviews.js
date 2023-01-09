@@ -21,9 +21,12 @@ function AllReviews({ setPickedArt }) {
         })
     }, [sorter, direction])
 
+    console.log(reviews)
+
     const handleClick = (value) => {
         setPickedArt(value)
     }
+
 
     return (
         <main>
@@ -49,8 +52,8 @@ function AllReviews({ setPickedArt }) {
                         </section>
                     })}
                 </ul>
-            </section>
-        </main>
+            </section >
+        </main >
     );
 }
 
